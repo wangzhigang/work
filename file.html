@@ -10,9 +10,22 @@
 p{border: solid 1px #000;margin: 10px;width: 200px;text-align: center;}
 #drag_file p,#local_file p,#web_file p{padding: 10px;border:#ccc dotted 2px;}
 #stcontent{position:absolute;left:19px;top:45px;width:640px;height:5px;z-index:6;}#stcontent form{position:relative;}#sttb{position:absolute;right:107px;top:12px;_top:11px;display:block;width:22px;height:17px;line-height:10em;z-index:1;overflow:hidden;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -79px -135px white;}#sttb:hover{background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -79px -112px white;}#stsug{position:relative;padding:10px 0 0 10px;height:117px;z-index:2;background:url("http://list.image.baidu.com/t/shituimage.gif") repeat-x scroll 0 -400px #F8FBFF;}#stsug .left-border{position:absolute;left:0;top:0;width:3px;height:130px;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -32px -113px transparent;}#stsug .right-border{position:absolute;right:0;top:0;width:3px;height:100%;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -60px -113px transparent;}#sthead{font-weight:bold;font-size:14px;line-height:16px;height:14px;}#closest{position:absolute;display:block;width:22px;height:22px;line-height:10em;overflow:hidden;right:2px;top:0;z-index:5;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -75px -159px transparent;}#closest:hover{background-position:-75px -185px;}.stf{line-height:14px;margin-top:20px;font-size:13px;height:20px;}.stf span,.stf img,.stf a{vertical-align:top;}.stf span{color:#010101;}.stf #sthelp{margin-left:5px;cursor:pointer;*position:relative;*top:-1px;}.stf .partition{margin:0 8px;color:#AAA9A9;}.stf #uploadImg{display:inline-block;overflow:hidden;cursor:pointer;position:absolute;height:15px;top:0;left:120px;}.stf #stfile{position:absolute;cursor:pointer;z-index:100;opacity:0;filter:alpha(opacity = 0);right:0;top:0;}.stuwr{width:508px;height:30px;display:inline-block;border:1px solid #CBCBCB;vertical-align:top;background-color:white;}.stuurl{font:16px/22px arial;height:22px;width:501px;color:black;padding:4px 0 4px 7px;*padding-top:3px;_padding-bottom:3px;vertical-align:top;border:0 none;}.stsb{background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -1px -72px transparent;display:inline-block;height:34px;width:97px;margin-left:0;*position:relative;z-index:0;vertical-align:top;}.stsb2{background:url("http://list.image.baidu.com/t/shituimage.gif") repeat scroll 0 -2px #DDD;border:0 none;cursor:pointer;font-size:14px;height:32px;padding:0;padding-top:2px\9;width:95px;}.stsb3{background-position:0 -39px;}.dragtg{font-size:13px;color:#727272;margin-top:5px;}#stmore{position:absolute;left:113px;top:64px;display:block;padding:10px;width:270px;height:119px;font-size:12px;background:url("http://list.image.baidu.com/t/shituimage.gif") repeat-x scroll 0 -255px transparent;}#stmore .left-border{position:absolute;left:-3px;top:0;width:4px;height:139px;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll 0 -111px transparent;}#stmore .right-border{position:absolute;right:-3px;top:0;width:4px;height:139px;background:url("http://list.image.baidu.com/t/shituimage.gif") no-repeat scroll -19px -111px transparent;}#stmore ul{list-style-type:decimal;margin:10px 0 5px 21px;line-height:18px;font-family:"ËÎÌå";}#stmore div{text-align:left;}#stmore div a{text-decoration:none;}#stmore div a:hover{text-decoration:underline;}#point,#dragtip{position:absolute;left:1px;top:1px;z-index:2;width:632px;height:119px;text-align:center;background-color:#F8FBFF;color:#A0A0A0;}#point{z-index:4;vertical-align:middle;text-align:center;height:70px;padding-top:49px;}#point img{margin-right:8px;}#point span,#point img{line-height:24px;vertical-align:middle;}#dragtip{text-align:left;color:black;}#dragtip div{font-weight:bold;margin:10px 0 0 10px;font-size:14px;}#dragtip span{margin:28px auto 0 auto;display:block;font-size:14px;width:119px;}
-#box{width:600px;height:800px;margin:0 auto;border:#ccc dotted 2px}
+#box{width:800px;height:600px;margin:50px auto;border:#ccc dotted 2px}
+.wrapper {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 2px dotted #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    color: #919191;
+    font-family: 'Microsoft YaHei','Microsoft JhengHei',arial;
+    font-size: 198%;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+}
 </style>
-<bdoy>
+<body>
 <div id="stcontent">
     <a class="sttb" id="sttb" href="javascript:void(0)" style="display:none" title="上传图片，搜索相关信息">stu</a>
     <div id="stsug" class="stsug" style="display:none">
@@ -35,7 +48,7 @@ p{border: solid 1px #000;margin: 10px;width: 200px;text-align: center;}
             <input name="tn" value="baiduimagepc" type="hidden">
         </form>
         <div class="stmore" id="stmore" style="display:none;">
-            <b>如何粘贴图片网址</b>s
+            <b>如何粘贴图片网址</b>
             <ul>
                 <li>右键点击网页上的图片，选择“复制图片网址”；</li>
                 <li>在搜索框中，粘贴该网址(Ctrl+V)，点击“识图一下”</li>
@@ -56,6 +69,8 @@ p{border: solid 1px #000;margin: 10px;width: 200px;text-align: center;}
         <div class="right-border"></div>
     </div>
 </div>
+http://varnow.org/pages/html5/file_api/image_preview.html
+<div id="dragUpload" class="wrapper last"> 拖拽图片到此 </div>
 <div id="box" style="display:none">
     <ul id="list"></ul>
 </div>
@@ -79,18 +94,15 @@ var point = document.getElementById("point"),
     onuploadtg = 0,ftn = document.getElementById("stftn").value || "",
     isDisplay = 0,
     isSubmit = 0;
-var oDragWrap = document.body;
+//var oDragWrap = document.body;
 function $id(id){
     return document.getElementById(id);
 };
-function dropHandler(e){
-    e.stopPropagation();
-    e.preventDefault();
-    var box = $id('box'),
-        ui = $id('list');
-    box.style.display = '';
-    var fileList = e.dataTransfer.files,
-        html = [];
+var box = $id('box'),
+    ui = $id('list'),
+    oDragWrap = $id('dragUpload');
+function dropHandler(fileList){
+    console.log(fileList.length)
     if(fileList.length == 0){
         alert('您还没有选择照片');
         return;
@@ -100,64 +112,45 @@ function dropHandler(e){
         return;
     };
     for(var i = 0,l = fileList.length;i<l;i++){
-        html.push('<li><img src=""></li>')
+        var file = fileList[i];
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var html = [];
+            var src = file.result;
+            html.push("<li><img src="+ src +"></li>");
+            console.log(html)
+        };
+        reader.readAsDataURL(fileList[i]);
     };
-
 };
 function init(){
     if (window.File && window.FileReader && window.FileList && window.Blob) {
+            oDragWrap.addEventListener("dragenter", function(e){
+                e.stopPropagation();  
+                e.preventDefault();
+                box.style.display = '';
+            }, false);
+            oDragWrap.addEventListener("dragleave", function(e){
+                e.stopPropagation();  
+                e.preventDefault();  
+                box.style.display = '';
+            }, false); 
             oDragWrap.addEventListener('dragover',function(e){
-                    e.stopPropagation();
-                    e.preventDefault();
+                e.stopPropagation();
+                e.preventDefault();
             });
             oDragWrap.addEventListener('drop',function(e){
-                    dropHandler(e);
-            },false);
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var fileList = e.dataTransfer.files;
+                    dropHandler(fileList);
+                },false);
+            
     } else {
         // alert('The File APIs are not fully supported by your browser.'); 
     }; 
 };
-
-
-
-//
-function handleDrop(e){
-    e.stopPropagation();
-    e.preventDefault();
-var fileList = e.dataTransfer.files;
-if(fileList.length == 0) return;
-if(fileList[0].type.indexOf('image') === -1) return;
-
-
-var fileList = e.dataTransfer.files, oImg = document.createElement('img'); 
-    if(fileList.length == 0) return; 
-    if(fileList[0].type.indexOf('image') === -1) return; 
-    if(window.URL.createObjectURL){
-        img.src = window.URL.createObjectURL(fileList[0]);
-    }else if(window.webkitURL.createObjectURL){
-        img.src = window.URL.createObjectURL(fileList[0])
-    }else{
-        var reader = new FileReader();      
-    }
-    reader.onload = function(){
-        oImg.src = window.URL.createObjectURL(fileList[0]);
-        oDragWrap.appendChild(oImg);
-    };
-    reader.readAsDataURL(fileList[0]);
-};
-
-
-var $drag_file = $('#drag_file'),
-    	$local_file = $('#local_file'),
-    	$web_file = $('#web_file');
-    $(document).ready(function(){
-    	if(!$.browser.msie){ $drag_file.show();
-    		$local_file.hide();
-    	}else{
-            $drag_file.hide();
-            $local_file.show();
-        };
-    }) 
+init();
 </script> 
 </body>
 </html>     
