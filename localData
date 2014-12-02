@@ -1,0 +1,52 @@
+QQ.localData = {
+    userData: null,
+    name: location.hostname,
+    isLocalStorage: typeof localStorage == 'undefined'?false:true,
+    init: function(){
+        if (!this.userData) {
+            try {
+                this.userData = document.createElement('INPUT');
+                this.userData.type = "hidden";
+                this.userData.style.display = "none";
+                this.userData.addBehavior ("#default#userData");
+                document.body.appendChild(this.userData);
+                var expires = new Date();
+                expires.setDate(expires.getDate()+365);
+                this.userData.expires = expires.toUTCString();
+            } catch(e) {
+                return false;
+            }
+        }
+        return true;
+    },
+    set: function(key, value) {
+        if(this.isLocalStorage){
+            localStorage.setItem(key, value);
+        }
+        else if(this.init()){
+            this.userData.load(this.name);
+            this.userData.setAttribute(key, value);
+            this.userData.save(this.name);
+        }
+    },
+    get: function(key) {
+        if(this.isLocalStorage){
+            return localStorage.getItem(key);
+        }
+        else if(this.init()){
+            this.userData.load(this.name);
+            return this.userData.getAttribute(key)
+        }
+        return null;
+    },
+    remove: function(key) {
+        if(this.isLocalStorage){
+            localStorage.removeItem(key);
+        }
+        else if(this.init()){
+            this.userData.load(this.name);
+            this.userData.removeAttribute(key);
+            this.userData.save(this.name);
+        }
+    }
+};
