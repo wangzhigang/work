@@ -1,0 +1,88 @@
+//提交投票里面的评论
+noteBox.on('click', 'a[action-type=vote-btn]', function(e) {
+    e.preventDefault();
+    var me = $(this);
+
+    if (H.loginDialog && !current_user) {
+        H.loginDialog();
+        return false
+    }
+
+    var val = $('input:radio[name="cmt-vote"]:checked').val();
+    var item = $(":radio:checked", noteBox);
+    var len = item.length;
+
+    if (len <= 0) {
+        alert("请选中投票的选项!");
+        return false;
+    }
+
+    var v = $(":radio:checked", noteBox).val();
+    var inputArr = $('input[node-type=vote-text]');
+    var id = '';
+
+    $.each(inputArr, function(i) {
+        if ($(this).val() != '') {
+            v = '#投票#' + $(this).val();
+            id = $(this).attr('id');
+            return false;
+        }
+    })
+
+    if (me.data('lock')) return false;
+    me.data('lock', true);
+
+    function psotComment(){
+        var l = v.length;
+        var input = $('#' + id);
+        var verify_code = self.hiddens.checkcode.val();
+        t_check_words && clearInterval(t_check_words);
+
+        if (l > self.rules.comment_max[0]) {
+            alert(self.rules.comment_max[1])
+            input.focus()
+            me.data('lock', false);
+            return false
+        }
+
+        //当小于最大字数的时候
+        if (l < self.rules.comment_min[0]) {
+            me.data('lock', false)
+            return false
+        }
+
+        if ($.trim(verify_code) === '') {
+            self.hiddens.checkcode.val('-1000');
+        }
+
+        self.hiddens.content.val(v);
+
+        // 判断是否要跳到第一页
+        //reply_box.data('has-origin') && (current_page = 1);
+
+        self.form.submit();
+
+        self.listenAPI(function(_data) {
+            o.data('lock', false)
+            if (_data.err) {
+
+            } else {
+                var key = '-~-';
+                self.verify_dialog && self.verify_dialog.destroy()
+                setTimeout(function() {
+                    self.buildActions()
+                    self.getList(current_page, function() {
+                        self.hiddens.content.val('')
+                        self.hiddens.fid.val(0);
+                        window.location.hash = key;
+                    })
+
+                }, 1000)
+            }
+
+        })
+    }
+
+    //调用投票
+    vote.confirmVote(v,psotComment);
+})
